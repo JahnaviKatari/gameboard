@@ -1,7 +1,8 @@
 Problem statement : There is a table which has 3 columns and 3 rows as given below
-___ ___ ___
-SAB H__ S__
-___ ___ ___
+
+* * *
+SAB H S
+* * *
 
 Where A and B are the players , S is the safe position and H is Home(Final point)
 There is dice which has only 3 options i.e (1,2 or 3). Each player rolls the dice alternatively.
