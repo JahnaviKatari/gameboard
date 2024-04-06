@@ -18,6 +18,7 @@ display() {
 
     for ((i = 0; i < 3; i++)); do
         for ((j = 0; j < 3; j++)); do
+	    #To check if either of players reaches end point and print the winner with their positions
 	    if [[ $a_position -eq 0 || $b_position -eq 0 ]]; then
 		    if [[ $a_position -eq 0 ]]; then
 			    matrix[1,1]="9HA"
@@ -32,28 +33,32 @@ display() {
 			    for ((j = 0; j < 3; j++)); do
 				    echo -n "${matrix[$i,$j]:1:3} "
                             done
-			    echo ""  # Add a newline after each row
+			    echo ""
 		    done
                     exit 0
-	   
+
+	   #To check if both players are at same safe positions and print SAB
             elif [[ "${matrix[$i,$j]}" == *"$a_position"* ]] && [[ "${matrix[$i,$j]}" == *"$b_position"* ]]; then
                     echo -n "SAB "
                  
-
+           #To check the position of player A with the declared matrix
 	    elif [[ "${matrix[$i,$j]}" == *"$a_position"* ]]; then
                 
+		    #check if players A is at safe positions and print SA
 		    if [[ "$a_position" -eq 5 ]] || [[ "$a_position" -eq 1 ]]; then
 			    echo -n "SA  "
-
+	            # if not safe print only A
 		    else
 			    echo -n "A   "
                     fi
-               
+            #To check the position of player B with the declared matrix
             elif [[ "${matrix[$i,$j]}" == *"$b_position"* ]]; then
                
+		    #check if players A is at safe positions and print SA
 	            if [[ "$b_position" -eq 5 ]] || [[ "$b_position" -eq 1 ]]; then
                     
 		  	    echo -n "SB  "
+	            # if not safe print only A
 		    else
 			    echo -n "B   "
 	            fi
@@ -66,6 +71,7 @@ display() {
     done
 }
 
+#Function to roll the dice
 function dice() {
     while true; do
         read -p "Enter dice roll (1, 2, or 3): " choice
@@ -123,7 +129,7 @@ move_player() {
     else
         current_positions[$player]=$((9 - ${req_steps[$player]} + 1))
     fi
-    echo "${current_positions[A]} ${current_positions[B]}"
+    echo "Position of A:${current_positions[A]}   Position of B:${current_positions[B]}"
     # Display the board after moving player
     display "${current_positions[A]}" "${current_positions[B]}"
 }
