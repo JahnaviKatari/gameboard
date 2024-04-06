@@ -1,9 +1,5 @@
 Problem statement : There is a table which has 3 columns and 3 rows as given below
 
-* * *
-SAB H S
-* * *
-
 Where A and B are the players , S is the safe position and H is Home(Final point)
 There is dice which has only 3 options i.e (1,2 or 3). Each player rolls the dice alternatively.
 The games starts at 2nd row 1st column the players must move in anti-clockwise 
@@ -15,3 +11,4 @@ If any of the player reaches the Home point then that print that player as winne
 Print the gameboard for each time the player dice
 
 The code for the above problem was return in shell script language
+![gameboard](https://github.com/JahnaviKatari/gameboard/assets/138784696/8171914f-2093-4879-90a0-e9a1df8f2dad)
